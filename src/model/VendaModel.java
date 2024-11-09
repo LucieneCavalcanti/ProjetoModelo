@@ -23,5 +23,35 @@ public class VendaModel {
         this.cliente = cliente;
         this.itens = itens;
     }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getData() {
+        return data;
+    }
+    public void setData(String data) {
+        this.data = data;
+    }
+    public String getFormaPagamento() {
+        return formaPagamento;
+    }
+    public void setFormaPagamento(String formaPagamento) {
+        this.formaPagamento = formaPagamento;
+    }
+    public ClienteModel getCliente() {
+        return cliente;
+    }
+    public void setCliente(ClienteModel cliente) {
+        this.cliente = cliente;
+    }
+    public ArrayList<ItemVenda> getItens() {
+        return itens;
+    }
+    public void setItens(ArrayList<ItemVenda> itens) {
+        this.itens = itens;
+    }
     
 }
