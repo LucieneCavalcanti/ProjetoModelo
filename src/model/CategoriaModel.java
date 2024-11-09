@@ -41,7 +41,7 @@ public class CategoriaModel implements Cadastro{
     }
     @Override
     public String mostrar() {
-        // TODO Auto-generated method stub
+        return "Categoria: " + id + " - " + descricao;
     }
 
     //sets/gets

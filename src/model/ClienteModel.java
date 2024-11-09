@@ -1,6 +1,8 @@
 package model;
 
-public class ClienteModel {
+import java.util.Scanner;
+
+public class ClienteModel implements Cadastro{
     private int id;
     private String nome;
     private String cpf;
@@ -32,6 +34,28 @@ public class ClienteModel {
     }
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+    @Override
+    public void cadastrar() throws Exception {
+        Scanner entrada = new Scanner(System.in);
+        do {
+            System.out.println("Digite o id:");
+            id = entrada.nextInt();
+        } while (id<=0);
+        do {
+            System.out.println("Digite o nome:");
+            nome = entrada.next();
+        } while (nome.length()<3 ||
+        nome.length()>100);
+        do {
+            System.out.println("Digite o cpf:");
+            cpf = entrada.next();
+        } while (cpf.length()!=14);
+    }
+    @Override
+    public String mostrar() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mostrar'");
     }
 
     //sets/gets
