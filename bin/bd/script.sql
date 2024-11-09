@@ -10,7 +10,7 @@ create table tbProdutos(
     id int not null identity primary key,
     descricao varchar(200) not null,
     quantidade int not null,
-    valor decimal(10,2) not null,
+    precoVenda decimal(10,2) not null,
     idCategoria int not null 
     references tbCategorias(id)
 )
