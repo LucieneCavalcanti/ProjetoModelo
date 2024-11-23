@@ -14,6 +14,7 @@ create table tbProdutos(
     idCategoria int not null 
     references tbCategorias(id)
 )
+
 create table tbLotes(
     numero int not null identity primary key,
     data varchar(10) not null,

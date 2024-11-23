@@ -54,8 +54,7 @@ public class ClienteModel implements Cadastro{
     }
     @Override
     public String mostrar() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mostrar'");
+        return "Id:" + id + "\nNome:"+ nome + "\nCPF:"+ cpf;
     }
 
     //sets/gets

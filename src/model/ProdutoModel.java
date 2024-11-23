@@ -1,6 +1,9 @@
 package model;
 
-public class ProdutoModel implements Cadastro{
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ProdutoModel {
     private int id;
     private String descricao;
     private int quantidade;
@@ -45,12 +48,41 @@ public class ProdutoModel implements Cadastro{
     public void setCategoria(CategoriaModel categoria) {
         this.categoria = categoria;
     }
-    @Override
-    public void cadastrar() throws Exception {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cadastrar'");
+
+    public void cadastrar(ArrayList<CategoriaModel> categorias) throws Exception {
+      Scanner entrada = new Scanner(System.in);
+        do {
+            System.out.println("Digite o id:");
+            id = entrada.nextInt();
+        } while (id<=0);
+        do {
+            System.out.println("Digite a descrição");
+            descricao = entrada.next();
+        } while (descricao.length()<3 ||
+        descricao.length()>50);
+        do {
+            System.out.println("Digite a quantidade:");
+            quantidade = entrada.nextInt();
+        } while (quantidade<0);
+        do {
+            System.out.println("Digite o preço de venda:");
+            precoVenda = entrada.nextFloat();
+        } while (precoVenda<=0);    
+        do {
+            System.out.println("Selecione uma categoria");
+            System.out.println("Categorias cadastradas");
+            for (CategoriaModel c : categorias) {
+                System.out.println(c.mostrar());
+            }
+            System.out.println("Digite o id da categoria:");
+            int idCategoria = entrada.nextInt();
+            for (CategoriaModel c : categorias) {
+                if(idCategoria==c.getId())
+                    this.categoria = c;
+            }
+        } while (categoria.getId()==0);
     }
-    @Override
+
     public String mostrar() {
        return "Produto:" + id + " - " + descricao +
        "\nQuantidade: " + quantidade + " R$ " + precoVenda +
