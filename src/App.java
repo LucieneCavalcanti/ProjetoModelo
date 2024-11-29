@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 import model.CategoriaModel;
@@ -14,6 +15,37 @@ public class App {
         ArrayList<ProdutoModel> listaProdutos = new ArrayList<>();
         ArrayList<LoteModel> listaLotes = new ArrayList<>();
         ArrayList<VendaModel> listaVendas = new ArrayList<>();
+        //pré-cadastros
+        ClienteModel c1 = new ClienteModel(1, "Maria", "12312313");
+        ClienteModel c2 = new ClienteModel();
+        c2.setId(2);
+        c2.setNome("João");
+        c2.setCpf("333333");
+        listaClientes.add(c1);
+        listaClientes.add(c2);
+        listaClientes.add(new ClienteModel(3, "Pedro", "1444444"));
+        for (int i = 4; i < 10; i++) {
+            listaClientes.add(new ClienteModel(i, "Cliente "+i, "25"+(i*2) + "58"));
+        }
+        // for (ClienteModel clienteModel : listaClientes) {
+        //     System.out.println(clienteModel.mostrar());
+        // }
+        for (int i = 1; i <= 15; i++) {
+            listaCategorias.add(new CategoriaModel(i, "Categoria "+i));
+        }
+        Random r = new Random();
+        for (int i = 1; i <= 10; i++) {
+            listaProdutos.add(new ProdutoModel(i, "Produto "+i,
+            r.nextInt(), r.nextFloat()*100, listaCategorias.get(i)));
+        }
+
+
+        for (int i = 15255; i <= 15275; i++) {
+            listaLotes.add(new LoteModel(i, (int)Math.floor(Math.random()*30)+"/"+
+            (int)Math.floor(Math.random()*12) + "/" +
+            (int)Math.floor(Math.random()*2030), 
+            listaProdutos.get((int)Math.floor(Math.random()*9)+1)));
+        }
         int opcao = 0;
         Scanner entrada = new Scanner(System.in);
         do{
@@ -76,7 +108,12 @@ public class App {
                     }
                     break;
                 case 14:
-                    
+                    System.out.println("#####################  LISTAGEM ################");
+                    for (LoteModel l : listaLotes) {
+                        System.out.println("-------------------------------");
+                        System.out.println(l.mostrar());
+                        
+                    }                    
                     break;            
                 case 15:
                     
