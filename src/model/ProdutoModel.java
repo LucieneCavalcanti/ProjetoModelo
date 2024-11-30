@@ -88,6 +88,12 @@ public class ProdutoModel {
        "\nQuantidade: " + quantidade + " R$ " + precoVenda +
        "\n" + categoria.mostrar();//ou .getDescricao()
     }
+    public float getPrecoVenda() {
+        return precoVenda;
+    }
+    public void setPrecoVenda(float precoVenda) {
+        this.precoVenda = precoVenda;
+    }
     
     
 }

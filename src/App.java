@@ -80,7 +80,9 @@ public class App {
                     listaProdutos.add(produto);
                     break;
                 case 4:
-                    
+                    LoteModel lote = new LoteModel();
+                    lote.cadastrar(listaProdutos);
+                    listaLotes.add(lote);
                     break;            
                 case 5:
                     
@@ -112,7 +114,6 @@ public class App {
                     for (LoteModel l : listaLotes) {
                         System.out.println("-------------------------------");
                         System.out.println(l.mostrar());
-                        
                     }                    
                     break;            
                 case 15:
